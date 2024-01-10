@@ -1,0 +1,122 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    max-width: 100px; /* Adjust the width as needed */
+  }
+
+  .title{
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  .search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 0.5rem 2rem 0.5rem 2rem; /* Adjust padding as needed */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px; /* Adjust width as needed */
+  }
+  
+  .search-input::placeholder {
+    color: #ccc;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    pointer-events: none; /* This prevents the icon from being clickable */
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin-right: 1rem;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav a {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: none;
+    transition: all ease 0.3s;
+  }
+  
+  nav a:hover {
+    background-color: yellow;
+    color: black;
+    padding: 0.5rem 2rem;
+  }
+  
+  .user-section a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+  }
+
+  .user-section {
+    display: flex;
+  }
+  
+  .login-btn,
+  .register-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    border: none;
+    transition: all ease 0.3s;
+  }
+  
+  .login-btn:hover,
+  .register-btn:hover {
+    background-color: yellow;
+    color: black;
+    padding: 0.5rem 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .search-box {
+      margin-right: 0;
+      margin-top: 1rem;
+    }
+  
+    .search-box input {
+      width: 100%;
+      margin-right: 0;
+    }
+  
+    .user-section {
+      margin-top: 1rem;
+    }
+  }

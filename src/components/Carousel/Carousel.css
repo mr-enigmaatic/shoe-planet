@@ -1,0 +1,13 @@
+/* Carousel.css */
+
+.carousel-container {
+    max-width: 100%; /* Adjust width as needed */
+    margin: 0 auto;
+  }
+  
+  .slick-slide img {
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    object-fit: cover;
+  }
+  
