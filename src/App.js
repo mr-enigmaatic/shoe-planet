@@ -1,15 +1,15 @@
 import './App.css';
-import Carousel from './components/Carousel/Carousel';
 import Footer from './components/Footer/Footer';
-import Header from './components/Header';
-import ProductsList from './components/Product/ProductList';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Header from './components/Header/Header';
+import ProductSection from './components/ProductSection/ProductSection';
 
 function App() {
   return (
     <>
     <Header/>
-    <Carousel/>
-    <ProductsList/>
+    <ProductSection/>
     <Footer/>
     </>
   );
