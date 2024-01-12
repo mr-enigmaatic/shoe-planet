@@ -1,0 +1,24 @@
+.hero-section {
+    padding: 100px 0; /* Adjust as needed for spacing */
+    background-image: url('https://pics.craiyon.com/2023-10-18/809fcbdf05554816ad3b24a9fa0a490f.webp'); /* Replace with your image path */
+    background-size:cover;
+    color: #fff; /* Text color for contrast */
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .hero-section .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1.25rem;
+  }

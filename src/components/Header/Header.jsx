@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Container, Button, NavDropdown } from 'react-bootstrap';
 import logo from '../../images/logo.png';
 import { useMediaQuery } from 'react-responsive';
+import RegisterForm from '../Forms/Register';
+import LoginForm from '../Forms/Login';
 
 function Header() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleRegisterClose = () => setShowRegister(false);
+  const handleRegisterShow = () => setShowRegister(true);
+  const handleLoginShow = () => setShowLogin(true);
+  const handleLoginClose = () => setShowLogin(false);
+  
   return (
       <Navbar collapseOnSelect expand="lg"  bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
       <Container fluid>
@@ -37,12 +48,20 @@ function Header() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+
           <Nav>
-            <Nav.Link href="#deets"><Button variant="outline-secondary">Register</Button></Nav.Link>
+        <Nav.Link onClick={handleRegisterShow}><Button variant="outline-secondary">Register</Button></Nav.Link>
+        <Nav.Link onClick={handleLoginShow}><Button variant="outline-primary">Login</Button></Nav.Link>
+      </Nav>
+      <RegisterForm show={showRegister} handleClose={handleRegisterClose} />
+      <LoginForm show={showLogin} handleClose={handleLoginClose} />
+
+          {/* <Nav>
+            <Nav.Link><Button variant="outline-secondary" onClick={setShowRegister(true)}>Register</Button></Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
             <Button variant="outline-success">Login</Button>
             </Nav.Link>
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
