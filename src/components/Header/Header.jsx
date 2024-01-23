@@ -4,6 +4,8 @@ import logo from '../../images/logo.png';
 import { useMediaQuery } from 'react-responsive';
 import RegisterForm from '../Forms/Register';
 import LoginForm from '../Forms/Login';
+import { Link } from 'react-router-dom';
+
 
 function Header() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -19,7 +21,7 @@ function Header() {
   return (
       <Navbar collapseOnSelect expand="lg"  bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
       <Container fluid>
-      <Navbar.Brand href="#home" className="d-flex align-items-center">
+      <Navbar.Brand as = {Link} to ={'/'} className="d-flex align-items-center">
         <img
           src={logo}
           height="auto"

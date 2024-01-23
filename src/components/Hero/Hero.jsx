@@ -8,7 +8,7 @@ function Hero() {
       <Container>
         <Row className="align-items-center">
           <Col md={6}>
-            <h1>Your Awesome Brand</h1>
+            <h1>Shoe Planet</h1>
             <p>A brief description of your brand or a catchy slogan.</p>
             <Button variant="primary" size="lg">Shop Now</Button>
           </Col>

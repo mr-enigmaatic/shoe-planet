@@ -1,0 +1,14 @@
+h5{
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+li{
+    transition: all 0.5s ease;
+}
+li:hover{
+    color: green;
+    font-weight: 600;
+    transform: translate(10px);
+}
