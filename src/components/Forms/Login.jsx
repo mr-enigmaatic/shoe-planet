@@ -4,13 +4,21 @@ import React, { useEffect, useState } from 'react';
 import { Modal, Button, Form} from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import instance from '../../utils/axios';
+import { useDispatch } from 'react-redux';
+import { authUser } from '../../redux/slices/userAuthSlice';
+import {useNavigate } from 'react-router-dom';
 
 function LoginForm({ show, handleClose }) {
+
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
 
   const handleInputChange = (e) => {
@@ -27,7 +35,7 @@ function LoginForm({ show, handleClose }) {
       // Perform login logic or API call
       console.log('Login form submitted:', formData);
       try {
-        let res = await axios.post('http://localhost:3001/api/v1/login', formData);
+        let res = await instance.post('/api/v1/login', formData);
 
         console.log("submitted form", res.data);
 
@@ -37,9 +45,15 @@ function LoginForm({ show, handleClose }) {
           });
         }
 
+        dispatch(authUser({
+          user:res.data.user,
+          isAuthenticated:true,
+          token:123
+        }));
 
         setFormData({ email: '', password: '' }); // Reset form data
         handleClose(); // Close the modal
+        navigate('/')
 
       } catch (error) {
         toast.error(error.response.data.message, {

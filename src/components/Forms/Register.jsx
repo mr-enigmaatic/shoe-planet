@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import instance from '../../utils/axios';
 
 function RegisterForm({ show, handleClose }) {
     const [validated, setValidated] = useState(false);
@@ -29,7 +30,7 @@ function RegisterForm({ show, handleClose }) {
             // Perform form submission or API call
             console.log('Form submitted:', formData);
             try {
-                let res = await axios.post('http://localhost:3001/api/v1/register', formData);
+                let res = await instance.post('/api/v1/register', formData);
 
                 console.log("req submited", res.data);
 

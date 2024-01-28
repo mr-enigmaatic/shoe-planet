@@ -1,11 +1,15 @@
 
 import React from 'react'
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
 
-function ProductSection({ products }) {
+function ProductSection() {
+
+  const products = useSelector((state)=> state.products.products)
+  
   console.log(products);
   return (
     <Container className="bg-dark text-center justify-content-center pb-3" fluid>

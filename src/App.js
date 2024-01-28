@@ -4,17 +4,26 @@ import Footer from './components/Footer/Footer';
 import './bootstrap.min.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
+
 
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import ProductSection from './components/Home/ProductSection';
 import ProductDetails from './components/Home/ProductDetails';
+import ScrollToTopOnRouteChange from './utils/ScrollToTopOnRouteChange';
+import ForMen from './components/categories/ForMen';
+import ForWomen from './components/categories/ForWomen';
+import Error404 from './components/Error/Error404';
+import { getProducts } from './redux/slices/productSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 
 function App() {
 
-  const [products, setproducts] = useState([]);
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state)=> state.authUser.isAuthenticated);
 
   useEffect(() =>{
 
@@ -31,8 +40,8 @@ function App() {
           throw new Error('Failed to fetch products');
         }
         const data = await response.json();
-        // Update the products state with the fetched data
-        setproducts(data.products);
+        // Update the products state in redux with the fetched data
+        dispatch(getProducts(data.products))
       } catch (error) {
         console.error('Error fetching products:', error.message);
       }
@@ -45,9 +54,15 @@ function App() {
   return (
     <Router>
       <Header />
+      <ScrollToTopOnRouteChange />
       <Routes>
-        <Route path='/' element={<><Hero/><ProductSection products={products}/></>}/>
-        <Route path='/details/:id' element={<ProductDetails products={products}/>}/>
+        <Route path='*' element={<Error404/>}/>
+        <Route path='/' element={<><Hero/><ProductSection/></>}/>
+
+        {/* Protected Routes */}
+        <Route path='/details/:id' element={<ProtectedRoute isAuthenticated={isAuthenticated}><ProductDetails/></ProtectedRoute>}/>
+        <Route path='/men' element={<ProtectedRoute isAuthenticated={isAuthenticated}><ForMen/></ProtectedRoute>}/>
+        <Route path='/women' element={<ProtectedRoute isAuthenticated={isAuthenticated}><ForWomen/></ProtectedRoute>}/>
       </Routes>
       
       <Footer />

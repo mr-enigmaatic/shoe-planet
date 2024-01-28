@@ -35,8 +35,8 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">Latest Drops</Nav.Link>
-            <Nav.Link href="#pricing">Men</Nav.Link>
-            <Nav.Link href="#pricing">Women</Nav.Link>
+            <Nav.Link as = {Link} to ={'/men'}>Men</Nav.Link>
+            <Nav.Link as = {Link} to ={'/women'}>Women</Nav.Link>
             <Nav.Link href="#pricing">Kids</Nav.Link>
             <NavDropdown title="Brands" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Nike</NavDropdown.Item>

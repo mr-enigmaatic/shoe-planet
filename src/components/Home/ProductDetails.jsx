@@ -1,24 +1,20 @@
-import React from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { Button, Col, Container, ProgressBar, Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 
-function ProductDetails({ products }) {
+function ProductDetails() {
 
     const { id } = useParams();
-
-    
+    const products = useSelector((state)=> state.products.products)
 
     const product = products.find((p) => p.id == id);
     if (!product) {
         console.log("no data");
-        return <div>Loading...</div>;
+        return <ProgressBar animated now={100} label="Loading..." className='fw-bold'/>;
       }
-    const price = product ? product.price : null;
+    const price = product.price * 88;
     
-   
-    
-    
-
     // console.log(id);
     console.log(product);
     return (

@@ -1,0 +1,29 @@
+/* display:'flex';
+flexDirection:'column';
+alignItems:'center';
+ justifyContent:'center';
+ height:'100vh' */
+
+ .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh;
+ }
+
+ .content .error{
+    font-weight: bold;
+    font-size: 60px;
+ }
+
+
+ p {
+    color: #999999;
+    font-weight: 600;
+ }
+
+ a{
+    text-decoration: none;
+    color: blue;
+ }
