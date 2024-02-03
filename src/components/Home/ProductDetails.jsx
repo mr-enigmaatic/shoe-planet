@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+
 import { Button, Col, Container, ProgressBar, Row } from 'react-bootstrap'
 import { useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
@@ -8,7 +8,7 @@ function ProductDetails() {
     const { id } = useParams();
     const products = useSelector((state)=> state.products.products)
 
-    const product = products.find((p) => p.id == id);
+    const product = products.find((p) => p.id === id);
     if (!product) {
         console.log("no data");
         return <ProgressBar animated now={100} label="Loading..." className='fw-bold'/>;
@@ -24,7 +24,7 @@ function ProductDetails() {
                 <Col md={6}>
                     <div className="additional-images">
                         {product.images.map((image, index) => (
-                            <img key={index} src={image} alt={`Image ${index + 1}`} className="additional-image" />
+                            <img key={index} src={image} alt={`Pic ${index + 1}`} className="additional-image" />
                         ))}
                     </div>
                 </Col>

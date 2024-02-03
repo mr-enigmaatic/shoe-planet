@@ -1,7 +1,6 @@
 // RegisterForm.js
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Modal, Button, Form, Alert } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import instance from '../../utils/axios';
@@ -13,7 +12,7 @@ function RegisterForm({ show, handleClose }) {
         email: '',
         password: '',
     });
-    const [errors, setErrors] = useState({});
+    // const [errors, setErrors] = useState({});
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -26,7 +25,7 @@ function RegisterForm({ show, handleClose }) {
         if (form.checkValidity() === false) {
             e.stopPropagation();
         } else {
-            setErrors({});
+            // setErrors({});
             // Perform form submission or API call
             console.log('Form submitted:', formData);
             try {

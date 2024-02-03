@@ -1,6 +1,5 @@
 // LoginForm.js
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, Button, Form} from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -35,7 +34,7 @@ function LoginForm({ show, handleClose }) {
       // Perform login logic or API call
       console.log('Login form submitted:', formData);
       try {
-        let res = await instance.post('/api/v1/login', formData);
+        let res = await instance.post('/api/v1/login', formData,{withCredentials:true});
 
         console.log("submitted form", res.data);
 
@@ -48,7 +47,7 @@ function LoginForm({ show, handleClose }) {
         dispatch(authUser({
           user:res.data.user,
           isAuthenticated:true,
-          token:123
+          token:res.data.token
         }));
 
         setFormData({ email: '', password: '' }); // Reset form data
