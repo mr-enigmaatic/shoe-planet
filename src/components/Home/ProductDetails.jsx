@@ -8,7 +8,7 @@ function ProductDetails() {
     const { id } = useParams();
     const products = useSelector((state)=> state.products.products)
 
-    const product = products.find((p) => p.id === id);
+    const product = products.find((p) => p.id == id);
     if (!product) {
         console.log("no data");
         return <ProgressBar animated now={100} label="Loading..." className='fw-bold'/>;
