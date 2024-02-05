@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './App.css';
 import Footer from './components/Footer/Footer';
-// import './bootstrap.min.css'
+import './bootstrap.min.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
