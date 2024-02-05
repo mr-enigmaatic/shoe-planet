@@ -6,9 +6,14 @@ import { useParams } from "react-router-dom";
 function ProductDetails() {
 
     const { id } = useParams();
+    console.log('ID:', id);
     const products = useSelector((state)=> state.products.products)
+    console.log(products);
+    
+    const product = products.find((p) => p.id == id);
+    
 
-    const product = products.find((p) => p.id === id);
+
     if (!product) {
         console.log("no data");
         return <ProgressBar animated now={100} label="Loading..." className='fw-bold'/>;

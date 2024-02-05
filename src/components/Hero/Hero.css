@@ -1,7 +1,8 @@
 .hero-section {
     padding: 100px 0; /* Adjust as needed for spacing */
-    background-image: url('https://pics.craiyon.com/2023-10-18/809fcbdf05554816ad3b24a9fa0a490f.webp'); /* Replace with your image path */
+    background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hvZXxlbnwwfHwwfHx8MA%3D%3D'); /* Replace with your image path */
     background-size:cover;
+    background-position: center;
     color: #fff; /* Text color for contrast */
   }
   
@@ -14,6 +15,7 @@
   .hero-section p {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    color: rgb(236, 187, 248);
   }
   
   .hero-section .btn-primary {
