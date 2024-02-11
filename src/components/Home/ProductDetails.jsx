@@ -6,11 +6,14 @@ import { useParams } from "react-router-dom";
 function ProductDetails() {
 
     const { id } = useParams();
-    console.log('ID:', id);
+    
+    console.log(typeof id);
+    const productId = parseInt(id, 10);
+
     const products = useSelector((state)=> state.products.products)
     console.log(products);
     
-    const product = products.find((p) => p.id == id);
+    const product = products.find((p) => p.id === productId);
     
 
 
